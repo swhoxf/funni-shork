@@ -11,6 +11,9 @@
 		<meta charset="utf-8">
 		<title>funni shork</title>
 		<link rel="stylesheet" href="style.css">
+    <audio autoplay loop="loop">
+      <source src="FlyMeToTheMoon.mp3" type="audio/mpeg">
+    </audio>
 	</head>
 	<body>
 		<script src="three.js"></script>
@@ -31,22 +34,6 @@
       const lightAmbient = new THREE.AmbientLight(0x9eaeff, 0.2)
       scene.add(lightDirectional)
       scene.add(lightAmbient)
-
-      // create an AudioListener and add it to the camera
-      const listener = new THREE.AudioListener();
-      camera.add( listener );
-
-      // create a global audio source
-      const sound = new THREE.Audio( listener );
-
-      // load a sound and set it as the Audio object's buffer
-      const audioLoader = new THREE.AudioLoader();
-      audioLoader.load( 'FlyMeToTheMoon.mp3', function( buffer ) {
-        sound.setBuffer( buffer );
-        sound.setLoop( true );
-        sound.setVolume( 0.5 );
-        sound.play();
-      });
 
       // initialize renderer
       const renderer = new THREE.WebGLRenderer()
